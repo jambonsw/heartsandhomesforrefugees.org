@@ -1,0 +1,5 @@
+/* TEAM */
+Lead Developer: Andrew Pinkham
+Site: https://www.jambonsw.com
+Twitter: @jambonsoftware
+Location: Boston, MA, USA
