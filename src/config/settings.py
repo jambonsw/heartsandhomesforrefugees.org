@@ -112,10 +112,10 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "en-us"
 
 # Supported languages
-LANGUAGES = (("en", _("English")),)
+LANGUAGES = (("en-us", _("English")),)
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
@@ -130,12 +130,32 @@ SITE_ID = 1
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = False
+USE_L10N = False
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
 # The numeric mode to set newly-uploaded files to. The value should be
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
+
+# Password validation
+# https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+]
+
+AUTH_PREFIX = "django.contrib.auth.password_validation."
+AUTH_PASSWORD_VALIDATORS = [
+    {"NAME": AUTH_PREFIX + "UserAttributeSimilarityValidator"},
+    {
+        "NAME": AUTH_PREFIX + "MinimumLengthValidator",
+        "OPTIONS": {"min_length": 12},
+    },
+    {"NAME": AUTH_PREFIX + "CommonPasswordValidator"},
+    {"NAME": AUTH_PREFIX + "NumericPasswordValidator"},
+]
 
 
 #############
@@ -202,6 +222,7 @@ TEMPLATES = [
     }
 ]
 
+WSGI_APPLICATION = "config.wsgi.application"
 
 ################
 # APPLICATIONS #
@@ -233,13 +254,13 @@ INSTALLED_APPS = (
 # response phase the middleware will be applied in reverse order.
 MIDDLEWARE = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     # Uncomment if using internationalisation or localisation
     # 'django.middleware.locale.LocaleMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.auth.middleware.SessionAuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "mezzanine.core.request.CurrentRequestMiddleware",
