@@ -134,6 +134,8 @@ USE_L10N = False
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # The numeric mode to set newly-uploaded files to. The value should be
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
@@ -229,6 +231,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 ################
 
 INSTALLED_APPS = (
+    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -255,6 +258,7 @@ INSTALLED_APPS = (
 MIDDLEWARE = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     # Uncomment if using internationalisation or localisation
     # 'django.middleware.locale.LocaleMiddleware',

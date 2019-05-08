@@ -2,6 +2,7 @@ argon2-cffi==19.1.0
 aspy.yaml==1.2.0
 beautifulsoup4==4.7.1
 bleach==3.1.0
+Brotli==1.0.7
 certifi==2019.3.9
 cffi==1.12.3
 cfgv==1.6.0
@@ -39,4 +40,5 @@ tzlocal==1.5.1
 urllib3==1.24.3
 virtualenv==16.5.0
 webencodings==0.5.1
+whitenoise==4.1.2
 zipp==0.4.0
