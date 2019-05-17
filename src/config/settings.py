@@ -102,6 +102,13 @@ ALLOWED_HOSTS = ENV.list(
     "ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "::1"]
 )
 
+
+def show_toolbar(request):
+    return ENV.bool("SHOW_DEBUG_TOOLBAR", default=False)
+
+
+DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": show_toolbar}
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
