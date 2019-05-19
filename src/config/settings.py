@@ -270,7 +270,11 @@ TEMPLATES = [
                 "mezzanine.conf.context_processors.settings",
                 "mezzanine.pages.context_processors.page",
             ],
-            "builtins": ["mezzanine.template.loader_tags"],
+            "builtins": [
+                "mezzanine.template.loader_tags",
+                "django.templatetags.static",
+                "django.contrib.staticfiles.templatetags.staticfiles",
+            ],
             "loaders": [
                 "mezzanine.template.loaders.host_themes.Loader",
                 "django.template.loaders.filesystem.Loader",
