@@ -1,3 +1,5 @@
+import logging.config
+
 from django.utils.translation import ugettext_lazy as _
 from environ import Env, Path
 
@@ -336,3 +338,23 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+LOGGING_CONFIG = None
+logging.config.dictConfig(
+    {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "console": {
+                "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s"
+            }
+        },
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "formatter": "console",
+            }
+        },
+        "loggers": {"": {"level": "WARNING", "handlers": ["console"]}},
+    }
+)
