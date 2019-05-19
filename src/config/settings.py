@@ -146,6 +146,15 @@ USE_L10N = False
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# Media Files Storage
+DEFAULT_FILE_STORAGE = ENV.str("MEDIA_FILE_STORAGE")
+AWS_ACCESS_KEY_ID = ENV.str("AWS_ACCESS_KEY_ID", default=None)
+AWS_SECRET_ACCESS_KEY = ENV.str("AWS_SECRET_ACCESS_KEY", default=None)
+AWS_S3_REGION_NAME = ENV.str("AWS_S3_REGION_NAME", default=None)
+AWS_STORAGE_BUCKET_NAME = ENV.str("AWS_STORAGE_BUCKET_NAME", default=None)
+AWS_DEFAULT_ACL = ENV.str("AWS_DEFAULT_ACL", default=None)
+AWS_S3_ENCRYPTION = ENV.bool("AWS_S3_ENCRYPTION", default=False)
+AWS_S3_CUSTOM_DOMAIN = ENV.str("AWS_S3_CUSTOM_DOMAIN")
 
 # The numeric mode to set newly-uploaded files to. The value should be
 # a mode you'd pass directly to os.chmod.
@@ -249,7 +258,7 @@ STATICFILES_DIRS = [BASE_DIR("staticfiles")]
 MEDIA_URL = "/media/"  # end-slash required
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = BASE_DIR("runtime", "media")
+MEDIA_ROOT = ""
 
 ROOT_URLCONF = "config.urls"
 
