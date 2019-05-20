@@ -395,6 +395,22 @@ except ImportError:
 else:
     set_dynamic_settings(globals())
 
+
+def get_mezzanine_settings():
+    """
+    Returns the value of the mezzanine.conf.context_processors.settings context
+    processor. Context processors usually can only be run during a request, but
+    luckily, mezzanine ignores the request parameter, so we don't have to worry
+    about it.
+    https://www.fusionbox.com/blog/detail/how-to-use-django-compressor-offline-compression-with-widgy/570/
+    """
+    from mezzanine.conf.context_processors import settings
+
+    return settings()["settings"]
+
+
+COMPRESS_OFFLINE_CONTEXT = {"settings": get_mezzanine_settings}
+
 LOGGING_CONFIG = None
 logging.config.dictConfig(
     {
