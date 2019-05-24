@@ -7,17 +7,18 @@ register_setting(
     description="Introduction to appear on the home page of the site",
     editable=True,
     default=(
-        "Hearts and Homes for Refugees (HHR) is a non-profit grassroots "
-        "humanitarian group in Westchester County, New York. Our mission is to "
-        "support those U.S. Department of State approved agencies that welcome, "
-        "protect and advocate for refugees in our communities. We are a growing "
-        "network of volunteers &mdash; families and neighbors, community "
-        "organizations, and people of goodwill from all faith and civic groups. We "
-        "offer our talents, time, and expertise to identify and utilize resources "
-        "that will offer hope and help to refugees, in keeping with the time-honored "
-        "American practice of welcoming newcomers. We hope to inspire, educate and "
-        "motivate others to do the&nbsp;same.\n\nJoin us to change the outcome for "
-        "refugees, one family at&nbsp;a&nbsp;time. "
+        "Hearts and Homes for Refugees is a nonprofit grassroots"
+        " humanitarian organization that works with U.S. State"
+        " Department-designated agencies to welcome, assist and"
+        " advocate for refugees. We are a growing network of volunteers"
+        " — families, neighbors, community organizations, and people of"
+        " goodwill from all faith and civic groups — committed to"
+        " offering refugees hope and opportunity. In keeping with"
+        " time-honored American tradition, we offer refuge to those"
+        " fleeing violence and persecution and identify and tap"
+        " resources that aid refugee populations. We use our expertise"
+        " and experience to educate, inspire and equip others to"
+        " welcome the stranger."
     ),
 )
 
@@ -27,8 +28,9 @@ register_setting(
     description="Disclaimer to appear after HHR Intro on the home page of the site",
     editable=True,
     default=(
-        "HHR is an apolitical initiative that welcomes concerned individuals from "
-        "every religious, faith-based and civic background and does not represent "
-        "any specific faith or community group except its&nbsp;own. "
+        "HHR is an apolitical initiative that welcomes concerned"
+        " individuals from every religious, faith-based and civic"
+        " background and does not represent any specific faith or"
+        " community group except its own."
     ),
 )
