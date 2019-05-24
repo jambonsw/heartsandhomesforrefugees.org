@@ -1,0 +1,9 @@
+{% overextends "pages/form.html" %}
+{% load static mezzanine_tags %}
+
+{% block container %}
+  <div class="cover">
+    <img src="{% static "images/statue_of_liberty_cover.jpg" %}" alt="Cover Image for Page" />
+  </div>
+  {{ block.super }}
+{% endblock %}

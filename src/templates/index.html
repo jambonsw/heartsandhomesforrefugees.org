@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block body_id %}liberty-background{% endblock %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active">{% trans "Home" %}</li>
+{% endblock %}
+
+{% block main %}
+  <blockquote>
+    <p>{% blocktrans %}
+      Give me your tired, your poor,<br />
+      Your huddled masses yearning to breathe free,<br />
+      The wretched refuse of your teeming shore.<br />
+      Send these, the homeless, tempest-tossed, to me:<br />
+      I lift my lamp beside the golden door.
+    {% endblocktrans %}</p>
+    <footer><cite>Emma Lazarus</cite></footer>
+  </blockquote>
+  <div class="description">
+    {{ settings.intro|safe|linebreaks }}
+    <p><em>
+      {{ settings.disclaimer|safe }}
+    </em></p>
+  </div>
+{% endblock %}

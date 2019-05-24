@@ -91,6 +91,11 @@ COMPRESS_OFFLINE = ENV.str("COMPRESS_OFFLINE")
 # INSTALLED_APPS setting.
 USE_MODELTRANSLATION = False
 
+# SEARCH_MODEL_CHOICES = (
+#     'coverPage.CoverPage',
+# )
+# Search for everything!
+SEARCH_MODEL_CHOICES = None
 
 ########################
 # MAIN DJANGO SETTINGS #
@@ -116,7 +121,7 @@ DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": show_toolbar}
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = "UTC"
+TIME_ZONE = "US/Eastern"
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
@@ -293,6 +298,52 @@ TEMPLATES = [
     }
 ]
 
+TEMPLATE_ACCESSIBLE_SETTINGS = (
+    "ACCOUNTS_APPROVAL_REQUIRED",
+    "ACCOUNTS_VERIFICATION_REQUIRED",
+    "ACCOUNTS_VERIFICATION_REQUIRED",
+    "ADMIN_MEDIA_PREFIX",
+    "ADMIN_MENU_COLLAPSED",
+    "BITLY_ACCESS_TOKEN",
+    "BLOG_BITLY_KEY",
+    "BLOG_BITLY_USER",
+    "BLOG_USE_FEATURED_IMAGE",
+    "COMMENTS_DISQUS_API_PUBLIC_KEY",
+    "COMMENTS_DISQUS_API_PUBLIC_KEY",
+    "COMMENTS_DISQUS_API_SECRET_KEY",
+    "COMMENTS_DISQUS_API_SECRET_KEY",
+    "COMMENTS_DISQUS_SHORTNAME",
+    "COMMENTS_DISQUS_SHORTNAME",
+    "COMMENTS_NUM_LATEST",
+    "COMMENTS_NUM_LATEST",
+    "COMMENTS_USE_RATINGS",
+    "DEV_SERVER",
+    "DEV_SERVER",
+    "FORMS_USE_HTML5",
+    "FORMS_USE_HTML5",
+    "GOOGLE_ANALYTICS_ID",
+    "GOOGLE_ANALYTICS_ID",
+    "GRAPPELLI_INSTALLED",
+    "GRAPPELLI_INSTALLED",
+    "JQUERY_FILENAME",
+    "JQUERY_FILENAME",
+    "JQUERY_UI_FILENAME",
+    "LOGIN_URL",
+    "LOGIN_URL",
+    "LOGOUT_URL",
+    "LOGOUT_URL",
+    "PAGES_MENU_SHOW_ALL",
+    "RATINGS_MAX",
+    "SITE_TAGLINE",
+    "SITE_TAGLINE",
+    "SITE_TITLE",
+    "SITE_TITLE",
+    "USE_L10N",
+    "USE_MODELTRANSLATION",
+    "intro",
+    "disclaimer",
+)
+
 WSGI_APPLICATION = "config.wsgi.application"
 
 ################
@@ -319,6 +370,7 @@ INSTALLED_APPS = (
     "mezzanine.galleries",
     "mezzanine.twitter",
     # "mezzanine.accounts",
+    "coverPage.apps.CoverpageConfig",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
