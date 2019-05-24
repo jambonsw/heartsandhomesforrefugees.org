@@ -1,0 +1,54 @@
+{
+  "name": "heartsandhomesforrefugees.org",
+  "scripts": {
+    "postdeploy": "pg_dump -Fc $STAGING_DATABASE_URL | pg_restore --clean --if-exists --no-owner -n public -d $DATABASE_URL && python src/manage.py setsitedata"
+  },
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    },
+    "ALLOWED_HOSTS": ".herokuapp.com",
+    "AWS_S3_CUSTOM_DOMAIN": {
+      "required": true
+    },
+    "COMPRESS_ENABLED": "True",
+    "COMPRESS_OFFLINE": "True",
+    "DEBUG": "True",
+    "DJANGO_SETTINGS_MODULE": {
+      "required": true
+    },
+    "MEDIA_FILE_STORAGE": {
+      "required": true
+    },
+    "NEVERCACHE_KEY": {
+      "generator": "secret"
+    },
+    "PYTHONHASHSEED": "random",
+    "SECRET_KEY": {
+      "generator": "secret"
+    },
+    "SHOW_DEBUG_TOOLBAR": "True",
+    "STAGING_DATABASE_URL": {
+      "required": true
+    },
+    "WEB_CONCURRENCY": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "size": "hobby",
+      "quantity": 1
+    }
+  },
+  "addons": ["memcachier", "heroku-postgresql"],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "stack": "heroku-18"
+}
