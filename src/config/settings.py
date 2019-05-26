@@ -259,6 +259,7 @@ STATIC_URL = "/static/"  # end-slash required
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 STATIC_ROOT = BASE_DIR("runtime", "static")
 STATICFILES_DIRS = [BASE_DIR("staticfiles")]
+WHITENOISE_ROOT = BASE_DIR("root_static")
 
 # URI prefix that Django uses to serve media
 MEDIA_URL = "/media/"  # end-slash required
