@@ -1,5 +1,6 @@
 import logging.config
 
+from appoptics_apm import djangoware
 from django.utils.translation import ugettext_lazy as _
 from environ import Env, Path
 
